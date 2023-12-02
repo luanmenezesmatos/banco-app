@@ -4,7 +4,7 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
-  PiggyBank,
+  Pyramid,
   CreditCard,
   File,
   FileText,
@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 
 export const Icons = {
-  logo: PiggyBank,
+  logo: Pyramid,
   close: X,
   spinner: Loader2,
   chevronLeft: ChevronLeft,
