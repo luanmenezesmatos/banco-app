@@ -8,7 +8,7 @@ import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import { Icons } from '@/components/icons';
 import { MobileNav } from './mobile-nav';
-
+import { buttonVariants } from '@/components/ui/button';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -99,9 +99,25 @@ export function MainNav({ items, children }: MainNavProps) {
         className="flex items-center space-x-2 md:hidden"
         onClick={() => setShowMobileMenu(!showMobileMenu)}
       >
-        {showMobileMenu ? <Icons.close /> : <Icons.logo /> }
+        {showMobileMenu ? <Icons.close /> : <Icons.logo />}
         <span className="font-bold">Menu</span>
       </button>
+
+      <div className="md:hidden lg:hidden xl:hidden items-center space-x-4 pl-6 ml-20">
+        <Link
+          href="/entrar"
+          className={cn(
+            buttonVariants({ variant: 'default', size: 'sm' }),
+            'px-4'
+          )}
+        >
+          Entrar{' '}
+          <span className="md:inline-block">
+            <Icons.login className="w-4 h-4 ml-1" />
+          </span>
+        </Link>
+      </div>
+
       {showMobileMenu && items && (
         <MobileNav items={items}>{children}</MobileNav>
       )}
@@ -124,7 +140,7 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
+          <div className="text-sm font-semibold leading-none">{title}</div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
