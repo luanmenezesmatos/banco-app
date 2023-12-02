@@ -103,7 +103,7 @@ export function MainNav({ items, children }: MainNavProps) {
         <span className="font-bold">Menu</span>
       </button>
 
-      <div className="md:hidden lg:hidden xl:hidden items-center space-x-4 ml-auto">
+      <div className="md:hidden lg:hidden xl:hidden items-center space-x-4 pl-6 ml-20">
         <Link
           href="/entrar"
           className={cn(
@@ -111,7 +111,7 @@ export function MainNav({ items, children }: MainNavProps) {
             'px-4'
           )}
         >
-          Entrar{' '}
+          Acessar minha conta{' '}
           <span className="md:inline-block">
             <Icons.login className="w-4 h-4 ml-1" />
           </span>
