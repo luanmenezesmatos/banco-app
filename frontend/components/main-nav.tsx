@@ -103,7 +103,7 @@ export function MainNav({ items, children }: MainNavProps) {
         <span className="font-bold">Menu</span>
       </button>
 
-      <div className="md:hidden lg:hidden xl:hidden items-center space-x-4 pl-6 ml-20">
+      <div className="md:hidden lg:hidden xl:hidden items-center space-x-4 ml-auto">
         <Link
           href="/entrar"
           className={cn(
