@@ -6,6 +6,10 @@ export type SiteConfig = {
   links: {
     github: string;
   };
+  author: {
+    name: string;
+    url: string;
+  };
 };
 
 export type MainConfig = {
@@ -23,14 +27,3 @@ export type NavItem = {
 };
 
 export type MainNavItem = NavItem;
-
-export type FooterConfig = {
-  footerNav: FooterNavItem[];
-};
-
-export type FooterNavItem = {
-  title: string;
-  links: string[];
-}
-
-export type MainFooterNavItem = FooterNavItem;
