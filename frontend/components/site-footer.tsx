@@ -100,26 +100,6 @@ const footerLinks = [
         title: 'Termos de Uso',
         href: '/termos-de-uso',
       },
-      {
-        title: 'Política de Cookies',
-        href: '/politica-de-cookies',
-      },
-      {
-        title: 'Contratos',
-        href: '/contratos',
-      },
-      {
-        title: 'Open Banking',
-        href: '/open-banking',
-      },
-      {
-        title: 'Open Finance',
-        href: '/open-finance',
-      },
-      {
-        title: 'Open Insurance',
-        href: '/open-insurance',
-      }
     ],
   },
 ];

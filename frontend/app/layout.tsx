@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { siteConfig } from '@/config/site';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
+import { Icons } from '@/components/icons';
 
 import { Inter as FontSans } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -32,9 +33,9 @@ export const metadata = {
   ],
   creator: 'Luan Menezes',
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: '/logo.svg',
+    shortcut: '/logo.svg',
+    apple: '/logo.svg',
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
 };
