@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import { InsertCPFForm } from '@/components/main/insert-cpf-form';
+
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import { Button, buttonVariants } from '@/components/ui/button';
@@ -40,27 +42,7 @@ export default async function IndexPage() {
           </p>
         </div>
         <div className="lg:ml-4">
-          {' '}
-            <Card>
-            <CardHeader>
-              <CardTitle>Peça sua conta e<br /> cartão de crédito do {siteConfig.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form>
-                <div className="grid w-full items-center gap-4">
-                  <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="cpf">CPF</Label>
-                    <Input id="cpf" placeholder="Digite seu CPF" />
-                  </div>
-                </div>
-              </form>
-            </CardContent>
-            <CardFooter>
-              <Button>Continuar{' '}
-              <Icons.arrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </CardFooter>
-          </Card>
+            <InsertCPFForm />
         </div>
       </div>
     </section>
