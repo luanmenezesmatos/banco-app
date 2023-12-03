@@ -12,6 +12,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 export default async function IndexPage() {
   return (
@@ -37,18 +39,26 @@ export default async function IndexPage() {
             vida.
           </p>
         </div>
-        <div className="lg:w-1/2 lg:ml-4">
+        <div className="lg:ml-4">
           {' '}
-          {/* Adicionando lg:ml-4 para margem à esquerda */}
-          <Card>
+            <Card>
             <CardHeader>
-              <CardTitle>Novo Card</CardTitle>
+              <CardTitle>Peça sua conta e<br /> cartão de crédito do {siteConfig.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ratione et ad voluptas! Natus unde nemo ut dolores cumque ad est eum accusamus omnis quisquam maxime, alias vitae necessitatibus excepturi!</CardDescription>
+              <form>
+                <div className="grid w-full items-center gap-4">
+                  <div className="flex flex-col space-y-1.5">
+                    <Label htmlFor="cpf">CPF</Label>
+                    <Input id="cpf" placeholder="Digite seu CPF" />
+                  </div>
+                </div>
+              </form>
             </CardContent>
             <CardFooter>
-              <Button>Saiba mais</Button>
+              <Button>Continuar{' '}
+              <Icons.arrowRight className="w-4 h-4 ml-2" />
+              </Button>
             </CardFooter>
           </Card>
         </div>
