@@ -1,10 +1,12 @@
 'use client';
 
 import { siteConfig } from '@/config/site';
+import { validateCPF } from '@/lib/utils';
 
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import InputMask from 'react-input-mask';
 
 import { Button } from '@/components/ui/button';
 import { Icons } from '@/components/icons';
@@ -31,7 +33,9 @@ const formSchema = z.object({
     .string({
       required_error: 'Precisamos de um CPF válido.',
     })
-    .length(11, 'Precisamos de um CPF válido.'),
+    .refine((value) => validateCPF(value), {
+      message: 'Precisamos de um CPF válido.',
+    }),
 });
 
 export function InsertCPFForm() {
@@ -66,7 +70,19 @@ export function InsertCPFForm() {
                       <FormItem>
                         <FormLabel htmlFor="cpf">CPF</FormLabel>
                         <FormControl>
-                          <Input id="cpf" {...field} />
+                          {/* <Input
+                            id="cpf"
+                            {...field}
+                            placeholder="123.456.789-00"
+                            data-mask="000.000.000-00"
+                          /> */}
+                          <InputMask
+                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                            mask="999.999.999-99"
+                            maskChar={null}
+                            value={form.getValues('cpf')}
+                            onChange={(e) => form.setValue('cpf', e.target.value)}
+                          />
                         </FormControl>
                         <FormDescription>Digite o seu CPF</FormDescription>
                         <FormMessage />
