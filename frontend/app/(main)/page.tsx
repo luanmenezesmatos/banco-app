@@ -28,13 +28,12 @@ export default async function IndexPage() {
         justifyContent: 'space-between',
       }}
     >
-      <div>
+      <div className='w-1/2 pt-5'>
         <h1 className="text-3xl font-bold text-white md:text-5xl lg:text-6xl lg:ml-4 lg:pb-4">
-          O futuro é a razão que a <br /> gente faz planos.
+          O futuro é a razão que a gente faz planos.
         </h1>
         <p className="text-white font-semibold text-lg md:text-2xl lg:text-3xl lg:ml-4">
-          Cartão de crédito, conta digital e mais. <br /> Tudo pra simplificar a
-          sua vida.
+          Cartão de crédito, conta digital e mais. Tudo pra simplificar a sua vida.
         </p>
       </div>
     </section>
