@@ -135,7 +135,10 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
             <div className="col-span-full">
               <Link href="/">
                 <div className="flex items-center">
-                  <Icons.logo className="w-24 h-6" />{' '}
+                  <Icons.logo />{' '}
+                  <h1 className="ml-2 font-bold text-lg">
+                    {siteConfig.name}
+                  </h1>
                 </div>
               </Link>
             </div>
