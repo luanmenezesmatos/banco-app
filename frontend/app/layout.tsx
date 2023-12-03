@@ -4,10 +4,18 @@ import { cn } from '@/lib/utils';
 import { siteConfig } from '@/config/site';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
-import { Nunito_Sans as NunitoSans } from 'next/font/google';
 
-const nunitoSans = NunitoSans({
+import { Inter as FontSans } from 'next/font/google';
+import localFont from 'next/font/local';
+
+const fontSans = FontSans({
   subsets: ['latin'],
+  variable: '--font-sans',
+});
+
+const fontHeading = localFont({
+  src: '../assets/fonts/CalSans-SemiBold.woff2',
+  variable: '--font-heading',
 });
 
 export const metadata = {
@@ -49,7 +57,8 @@ export default function RootLayout({
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',
-          nunitoSans.className,
+          fontSans.variable,
+          fontHeading.variable
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

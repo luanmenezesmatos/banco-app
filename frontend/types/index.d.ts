@@ -23,3 +23,14 @@ export type NavItem = {
 };
 
 export type MainNavItem = NavItem;
+
+export type FooterConfig = {
+  footerNav: FooterNavItem[];
+};
+
+export type FooterNavItem = {
+  title: string;
+  links: string[];
+}
+
+export type MainFooterNavItem = FooterNavItem;

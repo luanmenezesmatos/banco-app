@@ -1,4 +1,4 @@
-import { MainConfig } from '@/types';
+import { MainConfig, FooterConfig } from '@/types';
 import { siteConfig } from '@/config/site';
 
 export const mainConfig: MainConfig = {
@@ -140,3 +140,52 @@ export const mainConfig: MainConfig = {
     }
   ],
 };
+
+export const footerNav: FooterConfig = {
+  footerNav: [
+    {
+      title: 'Para você',
+      links: [
+        'Conta',
+        'Cartão de Crédito',
+        'Pix',
+        'Empréstimo',
+        'Investimentos',
+      ]
+    },
+    {
+      title: 'Para seu negócio',
+      links: [
+        'Conta PJ',
+        'Cartão de Crédito PJ',
+        'Tap to Pay',
+      ]
+    },
+    {
+      title: `O ${siteConfig.name}`,
+      links: [
+        `Sobre o ${siteConfig.name}`,
+        'Trabalhe conosco',
+        'Segurança',
+        'Blog',
+        'Newsletter',
+        'Comunidade',
+        'Perguntas',
+        'Contato',
+      ]
+    },
+    {
+      title: 'Ajuda',
+      links: [
+        'Central de Ajuda',
+        'Política de Privacidade',
+        'Termos de Uso',
+        'Política de Cookies',
+        'Contratos',
+        'Open Banking',
+        'Open Finance',
+        'Open Insurance',
+      ]
+    }
+  ]
+}
