@@ -27,7 +27,7 @@ export default async function IndexPage() {
         justifyContent: 'space-between',
       }}
     >
-      <div className="flex flex-col gap-6 md:flex-row md:gap-12 lg:gap-24 justify-center items-center">
+      <div className="flex flex-col gap-24 md:flex-row md:gap-12 lg:gap-24 justify-center items-center">
         <div className="lg:w-1/2 pt-6">
           <h1 className="text-3xl font-bold text-white md:text-5xl lg:text-6xl lg:ml-4 lg:pb-4">
             O futuro é a razão que a gente faz planos.
@@ -45,7 +45,7 @@ export default async function IndexPage() {
               <CardTitle>Novo Card</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription>Conteúdo do card</CardDescription>
+              <CardDescription>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ratione et ad voluptas! Natus unde nemo ut dolores cumque ad est eum accusamus omnis quisquam maxime, alias vitae necessitatibus excepturi!</CardDescription>
             </CardContent>
             <CardFooter>
               <Button>Saiba mais</Button>
