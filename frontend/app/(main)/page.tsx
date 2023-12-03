@@ -7,45 +7,55 @@ import { Icons } from '@/components/icons';
 
 export default async function IndexPage() {
   return (
-    <section className="container flex flex-col  gap-6 py-8 md:max-w-[64rem] md:py-12 lg:py-24">
-      <div className="grid w-full items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]">
-        <div className="grid gap-6">
-          <h3 className="text-xl font-bold font-heading sm:text-2xl">
-            What&apos;s included in the PRO plan
-          </h3>
-          <ul className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
-            <li className="flex items-center">
-              <Icons.check className="mr-2 h-4 w-4" /> Unlimited Posts
-            </li>
-            <li className="flex items-center">
-              <Icons.check className="mr-2 h-4 w-4" /> Unlimited Users
-            </li>
-
-            <li className="flex items-center">
-              <Icons.check className="mr-2 h-4 w-4" /> Custom domain
-            </li>
-            <li className="flex items-center">
-              <Icons.check className="mr-2 h-4 w-4" /> Dashboard Analytics
-            </li>
-            <li className="flex items-center">
-              <Icons.check className="mr-2 h-4 w-4" /> Access to Discord
-            </li>
-            <li className="flex items-center">
-              <Icons.check className="mr-2 h-4 w-4" /> Premium Support
-            </li>
-          </ul>
-        </div>
-        <div className="flex flex-col gap-4 text-center">
-          <div>
-            <h4 className="text-7xl font-bold">$19</h4>
-            <p className="text-sm font-medium text-muted-foreground">
-              Billed Monthly
-            </p>
-          </div>
-          <Link href="/login" className={cn(buttonVariants({ size: 'lg' }))}>
-            Get Started
+    <section
+      className="container flex flex-col md:flex-row gap-6 py-8 md:max-w-full md:py-12 lg:py-24"
+      style={{
+        backgroundImage:
+          'url("https://manucav.github.io/nubank-responsivo/img/home-nubank.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        width: '100%',
+        height: 'calc(100vh - 56px)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      }}
+    >
+      <div className="flex flex-col gap-6 md:w-1/2 md:mr-8">
+        <h1 className="text-4xl font-bold text-white">
+          <span className="block">O novo jeito de</span>
+          <span className="block">ter uma conta</span>
+        </h1>
+        <p className="text-white">
+          <span className="block">Bem-vindo ao Nubank. </span>
+          <span className="block">A vida financeira sem complicação.</span>
+        </p>
+        <div className="flex gap-6">
+          <Link
+            href="/entrar"
+            className={cn(
+              buttonVariants({ variant: 'default', size: 'sm' }),
+              'px-4'
+            )}
+          >
+            Acessar minha conta{' '}
+            <span className="hidden md:inline-block">
+              <Icons.login className="w-4 h-4 ml-1" />
+            </span>
           </Link>
         </div>
+      </div>
+      <div className="flex flex-col gap-6 md:w-1/2">
+        <img
+          src="https://manucav.github.io/nubank-responsivo/img/nubank-card.png"
+          alt="Cartão Nubank"
+          className="w-full max-w-[300px]"
+        />
+        <p className="text-white">
+          <span className="block">Cartão de crédito com</span>
+          <span className="block">anuidade grátis e</span>
+          <span className="block">conta completa pra você.</span>
+        </p>
       </div>
     </section>
   );
