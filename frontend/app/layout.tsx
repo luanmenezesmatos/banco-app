@@ -33,7 +33,7 @@ export const metadata = {
   ],
   creator: 'Luan Menezes',
   icons: {
-    icon: '/logo.svg',
+    icon: '/logo.ico',
     shortcut: '/logo.svg',
     apple: '/logo.svg',
   },
