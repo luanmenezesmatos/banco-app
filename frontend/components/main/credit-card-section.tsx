@@ -14,11 +14,8 @@ export function CreditCardSection() {
       <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
         Conta do {siteConfig.name}
       </h1>
-      <p className="max-w-full sm:max-w-[20rem] md:max-w-[32rem] lg:max-w-[42rem] leading-normal sm:text-base md:text-xl lg:text-2xl">
-        A conta que vai levar você ao controle da sua vida financeira. Manter
-        suas contas em dia nunca foi tão simples. Com o {siteConfig.name} você
-        pode pagar contas, fazer transferências, recarregar celular, criar
-        objetivos e muito mais.
+      <p className="max-w-full sm:max-w-[16rem] md:max-w-[32rem] lg:max-w-[42rem] leading-normal sm:text-base md:text-xl lg:text-2xl">
+        A conta que vai levar você ao controle da sua vida financeira. Manter suas contas em dia nunca foi tão simples. Com o {siteConfig.name} você pode pagar contas, fazer transferências, recarregar celular, criar objetivos e muito mais.
       </p>
       <div className="flex flex-wrap items-center justify-center gap-4">
         <Link
