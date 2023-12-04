@@ -10,25 +10,30 @@ import { buttonVariants } from '@/components/ui/button';
 
 export function CreditCardSection() {
   return (
-    <section className="mx-auto flex w-full max-w-[64rem] flex-col items-center justify-center gap-4 py-12 text-center md:pt-32">
-      <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-        Conta do {siteConfig.name}
-      </h1>
-      <p className="max-w-full sm:max-w-[10rem] md:max-w-[32rem] lg:max-w-[42rem] leading-normal sm:text-base md:text-xl lg:text-2xl">
-        A conta que vai levar você ao controle da sua vida financeira. Manter suas contas em dia nunca foi tão simples. Com o {siteConfig.name} você pode pagar contas, fazer transferências, recarregar celular, criar objetivos e muito mais.
-      </p>
-      <div className="flex flex-wrap items-center justify-center gap-4">
-        <Link
-          href="/dashboard/stores"
-          className={cn(
-            buttonVariants({
-              variant: 'link',
-            })
-          )}
-        >
-          <span className="mr-2">Saiba mais</span>
-          <Icons.arrowRight className="h-[14px] w-[14px]" />
-        </Link>
+    <section className="mt-10 border-t">
+      <div className="mx-auto max-w-none px-5 py-14 sm:max-w-[90%] sm:px-0 lg:max-w-4xl">
+        <h1 className="text-center font-heading font-bold text-4xl md:text-4xl lg:text-5xl lg:ml-4">
+          Conta do {siteConfig.name}
+        </h1>
+        <p className="mt-5 text-center text-lg leading-6">
+          A conta que vai levar você ao controle da sua vida financeira. Manter
+          suas contas em dia nunca foi tão simples. Com o {siteConfig.name} você
+          pode pagar contas, fazer transferências, recarregar celular, criar
+          objetivos e muito mais.
+        </p>
+        <div className="mt-5 flex justify-center">
+          <Link
+            href="/dashboard/stores"
+            className={cn(
+              buttonVariants({
+                variant: 'link',
+              })
+            )}
+          >
+            <span className="mr-2">Saiba mais</span>
+            <Icons.arrowRight className="h-[14px] w-[14px]" />
+          </Link>
+        </div>
       </div>
     </section>
   );
