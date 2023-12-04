@@ -4,20 +4,7 @@ import { cn } from '@/lib/utils';
 import { siteConfig } from '@/config/site';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
-import { Icons } from '@/components/icons';
-
-import { Inter as FontSans } from 'next/font/google';
-import localFont from 'next/font/local';
-
-const fontSans = FontSans({
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
-
-const fontHeading = localFont({
-  src: '../assets/fonts/CalSans-SemiBold.woff2',
-  variable: '--font-heading',
-});
+import { fontHeading, fontMono, fontSans } from '@/lib/fonts';
 
 export const metadata = {
   title: {
@@ -34,8 +21,6 @@ export const metadata = {
   creator: 'Luan Menezes',
   icons: {
     icon: '/logo.ico',
-    shortcut: '/logo.svg',
-    apple: '/logo.svg',
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
 };
@@ -53,12 +38,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <head />
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',
           fontSans.variable,
+          fontMono.variable,
           fontHeading.variable
         )}
       >

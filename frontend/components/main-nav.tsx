@@ -30,7 +30,7 @@ export function MainNav({ items, children }: MainNavProps) {
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
         <Icons.logo />
-        <span className="hidden text-xl font-semibold sm:inline-block">
+        <span className="hidden text-xl font-sans font-semibold sm:inline-block">
           {siteConfig.name}
         </span>
       </Link>
@@ -140,7 +140,7 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-semibold leading-none">{title}</div>
+          <div className="text-sm font-sans font-semibold leading-none">{title}</div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>

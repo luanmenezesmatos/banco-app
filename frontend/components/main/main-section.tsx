@@ -18,10 +18,10 @@ export function MainSection() {
     >
       <div className="flex flex-col gap-24 md:flex-row md:gap-12 lg:gap-24 justify-center items-center">
         <div className="lg:w-1/2 pt-6">
-          <h1 className="text-3xl font-bold text-white md:text-5xl lg:text-6xl lg:ml-4 lg:pb-4">
+          <h1 className="font-heading text-3xl font-bold text-white md:text-5xl lg:text-6xl lg:ml-4 lg:pb-4">
             O futuro é a razão que a gente faz planos.
           </h1>
-          <p className="text-white font-semibold text-lg md:text-2xl lg:text-3xl lg:ml-4">
+          <p className="font-sans text-white font-semibold text-lg md:text-2xl lg:text-3xl lg:ml-4">
             Cartão de crédito, conta digital e mais. Tudo pra simplificar a sua
             vida.
           </p>
