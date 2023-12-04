@@ -71,8 +71,8 @@ export function ScrollAreaCarousel() {
           <div className="relative mt-8 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-[5%] before:bg-gradient-to-r before:from-white before:content-[''] after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-[5%] after:bg-gradient-to-l after:from-white after:content-[''] dark:before:bg-gradient-to-r dark:before:from-black dark:after:bg-gradient-to-l dark:after:from-black">
             <ScrollArea>
               <div className="mb-4 whitespace-nowrap p-[2px]">
-                {itemsArray.map((item) => (
-                  <div className="relative mr-2.5 inline-block h-[141px] w-[250px]">
+                {itemsArray.map((item, index) => (
+                  <div key={index} className="relative mr-2.5 inline-block h-[141px] w-[250px]">
                     <div className="absolute inset-0 z-20 rounded-2xl border">
                       <span className="sr-only">{item.title}</span>
                     </div>
