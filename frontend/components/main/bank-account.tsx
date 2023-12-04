@@ -8,7 +8,7 @@ import { Icons } from '@/components/icons';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
 
-export function CreditCardSection() {
+export function BankAccount() {
   return (
     <section className="mt-10 border-t">
       <div className="mx-auto max-w-none px-5 py-14 sm:max-w-[90%] sm:px-0 lg:max-w-4xl">

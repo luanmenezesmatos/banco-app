@@ -2,7 +2,7 @@ import { ScrollAreaCarousel } from '@/components/main/scroll-area';
 import { MainSection } from '@/components/main/main-section';
 import { CardSection } from '@/components/main/card-section';
 import { FinancialSection } from '@/components/main/financial-section';
-import { CreditCardSection } from '@/components/main/credit-card-section';
+import { BankAccount } from '@/components/main/bank-account';
 
 export default async function IndexPage() {
   return (
@@ -11,7 +11,7 @@ export default async function IndexPage() {
       <ScrollAreaCarousel />
       <CardSection />
       <FinancialSection />
-      <CreditCardSection />
+      <BankAccount />
     </>
   );
 }
