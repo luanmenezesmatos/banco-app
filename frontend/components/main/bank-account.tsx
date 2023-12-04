@@ -12,7 +12,7 @@ export function BankAccount() {
   return (
     <section className="mt-10 border-t">
       <div className="mx-auto max-w-none px-5 py-14 sm:max-w-[90%] sm:px-0 lg:max-w-4xl">
-        <h1 className="text-center font-heading font-bold text-4xl md:text-4xl lg:text-5xl lg:ml-4">
+        <h1 className="text-center font-heading font-semibold text-4xl md:text-4xl lg:text-5xl lg:ml-4">
           Conta do {siteConfig.name}
         </h1>
         <p className="mt-5 text-center text-lg leading-6">
