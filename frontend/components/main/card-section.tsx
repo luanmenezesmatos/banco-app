@@ -12,9 +12,9 @@ export function CardSection() {
     <section className="border-t py-16">
       <div className="mx-auto max-w-none px-5 sm:max-w-[90%] sm:px-0 2xl:max-w-8xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-9 items-start">
-          <div className="mr-4 lg:mt-15 lg:pt-12">
+          <div className="mr-4 lg:mt-15 lg:pt-12 flex flex-col items-center lg:items-start">
             <h2 className="text-4xl font-bold leading-9">
-              Conheça nosso
+              Conheça o nosso
               <br />
               Cartão de Crédito
             </h2>
@@ -26,7 +26,7 @@ export function CardSection() {
               confiança que só o {siteConfig.name} pode oferecer.
             </p>
             <div className="mt-5">
-              <Button variant="outline" size="lg" className="text-[15px] xl:flex">
+              <Button variant="link" size="lg" className="text-[15px] xl:flex">
                 <Link href="/cartao" className="flex items-center gap-x-3">
                   Saiba mais
                   <Icons.arrowRight className="h-[14px] w-[14px]" />
@@ -34,6 +34,7 @@ export function CardSection() {
               </Button>
             </div>
           </div>
+
           <div className="flex flex-col items-start">
             <img
               src="/img/man-smiling.svg"
