@@ -2,6 +2,7 @@ import * as React from 'react';
 import Link from 'next/link';
 
 import { siteConfig } from '@/config/site';
+import { cn } from '@/lib/utils';
 import { Icons } from '@/components/icons';
 
 const footerLinks = [
@@ -113,7 +114,7 @@ export function SiteFooter() {
               <Link href="/">
                 <div className="flex items-center">
                   <Icons.logo />{' '}
-                  <h1 className="ml-2 font-sans font-bold text-lg">
+                  <h1 className="ml-2 font-sans font-semibold text-lg">
                     {siteConfig.name}
                   </h1>
                 </div>
@@ -142,9 +143,7 @@ export function SiteFooter() {
                 Inscreva-se na nossa newsletter
               </h3>
               <p className="mb-1.5 text-[13px] leading-6 lg:text-sm">
-                Receba as últimas notícias do{' '}
-                <b className="font-semibold">{siteConfig.name}</b> e
-                atualizações
+                Receba as últimas notícias do <b className="font-semibold">{siteConfig.name}</b> e atualizações
               </p>
             </div>
           </div>

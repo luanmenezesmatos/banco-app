@@ -100,7 +100,7 @@ export function MainNav({ items, children }: MainNavProps) {
         onClick={() => setShowMobileMenu(!showMobileMenu)}
       >
         {showMobileMenu ? <Icons.close /> : <Icons.menu />}
-        <span className="font-bold">Menu</span>
+        <span className="font-sans font-semibold">Menu</span>
       </button>
 
       <div className="md:hidden lg:hidden xl:hidden items-center space-x-4 pl-10">
@@ -140,7 +140,7 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-sans font-semibold leading-none">{title}</div>
+          <div className="text-sm font-heading font-bold leading-none">{title}</div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
