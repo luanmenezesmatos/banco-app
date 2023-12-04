@@ -24,7 +24,8 @@ import {
   User,
   X,
   LogIn,
-  Menu
+  Menu,
+  HelpingHand
 } from 'lucide-react';
 
 export const Icons = {
@@ -51,6 +52,7 @@ export const Icons = {
   laptop: Laptop,
   login: LogIn,
   menu: Menu,
+  helping_hand: HelpingHand,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

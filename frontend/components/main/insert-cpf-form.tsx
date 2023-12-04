@@ -17,7 +17,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
 import {
   Form,
   FormControl,
@@ -76,12 +75,15 @@ export function InsertCPFForm() {
                             placeholder="123.456.789-00"
                             data-mask="000.000.000-00"
                           /> */}
+
                           <InputMask
                             type="tel"
                             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                             mask="999.999.999-99"
                             value={form.getValues('cpf')}
-                            onChange={(e) => form.setValue('cpf', e.target.value)}
+                            onChange={(e) =>
+                              form.setValue('cpf', e.target.value)
+                            }
                           />
                         </FormControl>
                         <FormDescription>Digite o seu CPF</FormDescription>
