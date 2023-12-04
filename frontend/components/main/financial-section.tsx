@@ -21,8 +21,6 @@ export function FinancialSection() {
     >
       <div className="flex flex-col gap-24 md:flex-row md:gap-12 lg:gap-24 justify-start items-start">
         <div className="lg:w-1/2 lg:text-left sm:mb-8 mt-12 pt-12 md:mt-0 lg:mt-0 lg:pt-0">
-          {' '}
-          {/* Adicionando margem superior para dispositivos móveis */}
           <h1 className="text-3xl font-semibold text-white md:text-5xl lg:text-6xl lg:ml-4 lg:pb-4">
             Nós acreditamos que só uma pessoa pode ter controle sobre sua vida
             financeira: você.
