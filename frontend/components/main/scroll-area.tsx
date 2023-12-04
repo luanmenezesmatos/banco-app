@@ -58,7 +58,7 @@ export function ScrollAreaCarousel() {
       title: 'Conta PJ',
       description:
         'A conta digital para o seu negócio. Sem tarifas de manutenção e com serviços que facilitam o seu dia a dia.',
-    }
+    },
   ];
 
   return (
@@ -72,7 +72,10 @@ export function ScrollAreaCarousel() {
             <ScrollArea>
               <div className="mb-4 whitespace-nowrap p-[2px]">
                 {itemsArray.map((item, index) => (
-                  <div key={index} className="relative mr-2.5 inline-block h-[141px] w-[250px]">
+                  <div
+                    key={index}
+                    className="relative mr-2.5 inline-block h-[160px] w-[250px] overflow-hidden"
+                  >
                     <div className="absolute inset-0 z-20 rounded-2xl border">
                       <span className="sr-only">{item.title}</span>
                     </div>
@@ -81,6 +84,11 @@ export function ScrollAreaCarousel() {
                         <item.icon className="w-5 h-5 mr-1" />
                         {item.title}
                       </span>
+                    </div>
+                    <div className="pt-12 mt-2 ml-4 text-md whitespace-normal">
+                      <p className="text-black dark:text-white">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 ))}
