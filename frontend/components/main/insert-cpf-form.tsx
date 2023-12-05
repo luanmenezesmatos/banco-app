@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 import { siteConfig } from '@/config/site';
 import { validateCPF } from '@/lib/utils';
 
@@ -9,7 +11,10 @@ import { useForm } from 'react-hook-form';
 import InputMask from 'react-input-mask';
 
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Icons } from '@/components/icons';
+
 import {
   Card,
   CardContent,
@@ -17,6 +22,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+
 import {
   Form,
   FormControl,
@@ -26,6 +32,17 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 
 const formSchema = z.object({
   cpf: z
@@ -46,8 +63,10 @@ export function InsertCPFForm() {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    setIsOpen(true);
   };
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Card>
@@ -69,13 +88,6 @@ export function InsertCPFForm() {
                       <FormItem>
                         <FormLabel htmlFor="cpf">CPF</FormLabel>
                         <FormControl>
-                          {/* <Input
-                            id="cpf"
-                            {...field}
-                            placeholder="123.456.789-00"
-                            data-mask="000.000.000-00"
-                          /> */}
-
                           <InputMask
                             type="tel"
                             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
@@ -96,9 +108,55 @@ export function InsertCPFForm() {
             </div>
           </CardContent>
           <CardFooter>
-            <Button>
-              Continuar <Icons.arrowRight className="w-4 h-4 ml-2" />
-            </Button>
+            {isOpen ? (
+              <Sheet>
+                <SheetTrigger>
+                  <Button type="submit">
+                    Continuar <Icons.arrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="full">
+                  <SheetHeader>
+                    <SheetTitle>Edit profile</SheetTitle>
+                    <SheetDescription>
+                      Make changes to your profile here. Click save when you're
+                      done.
+                    </SheetDescription>
+                  </SheetHeader>
+                  <div className="grid gap-4 py-4">
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="name" className="text-right">
+                        Name
+                      </Label>
+                      <Input
+                        id="name"
+                        value="Pedro Duarte"
+                        className="col-span-3"
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="username" className="text-right">
+                        Username
+                      </Label>
+                      <Input
+                        id="username"
+                        value="@peduarte"
+                        className="col-span-3"
+                      />
+                    </div>
+                  </div>
+                  <SheetFooter>
+                    <SheetClose asChild>
+                      <Button type="submit">Save changes</Button>
+                    </SheetClose>
+                  </SheetFooter>
+                </SheetContent>
+              </Sheet>
+            ) : (
+              <Button type="submit">
+                Continuar <Icons.arrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            )}
           </CardFooter>
         </form>
       </Form>
