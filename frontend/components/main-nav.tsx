@@ -49,7 +49,7 @@ export function MainNav({ items, children }: MainNavProps) {
                 {item.title}
               </Link>
             ) : item.type === 'dropdown' ? (
-              <NavigationMenu>
+              <NavigationMenu key={index}>
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
@@ -73,7 +73,6 @@ export function MainNav({ items, children }: MainNavProps) {
                             </NavigationMenuLink>
                           </li>
                         )}
-
                         {item.dropdownItems?.map((item, index) => {
                           return (
                             <ListItem
@@ -140,7 +139,9 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-heading font-bold leading-none">{title}</div>
+          <div className="text-sm font-heading font-bold leading-none">
+            {title}
+          </div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
