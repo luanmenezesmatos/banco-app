@@ -16,28 +16,28 @@ export function BlogSection() {
       title: 'Empréstimo',
       description:
         'Transparentes, seguros e do seu jeito. Opções de empréstimos que deixam você no controle do início ao fim.',
-      image_url: 'https://res.cloudinary.com/dejgthlwx/image/upload/c_limit,w_384/f_auto/q_auto/v1//locations/cancun_c1tw5i?_a=BAVAPtAO0'
+      image_url: '/img/blog-1.webp'
     },
     {
       id: 2,
       title: 'Investimentos',
       description:
         'Investimentos a partir de R$ 1 e opções para todos os perfis. Uma experiência fácil, segura e transparente.',
-      image_url: 'https://res.cloudinary.com/dejgthlwx/image/upload/c_limit,w_384/f_auto/q_auto/v1//locations/dubai_joqiup?_a=BAVAPtAO0'
+      image_url: '/img/blog-2.jfif'
     },
     {
       id: 3,
       title: 'Seguros',
       description:
         'Seguros de vida e residencial com coberturas e assistências que você pode personalizar.',
-      image_url: 'https://res.cloudinary.com/dejgthlwx/image/upload/c_limit,w_384/f_auto/q_auto/v1//locations/paris_tfbyw0?_a=BAVAPtAO0'
+      image_url: '/img/blog-3.webp'
     },
     {
       id: 4,
       title: 'Câmbio',
       description:
         'Compre e venda moedas estrangeiras com as melhores taxas e sem sair de casa.',
-      image_url: 'https://res.cloudinary.com/dejgthlwx/image/upload/c_limit,w_384/f_auto/q_auto/v1//locations/rome_g8hdhk?_a=BAVAPtAO0'
+      image_url: '/img/blog-4.jpg'
     }
   ];
 
