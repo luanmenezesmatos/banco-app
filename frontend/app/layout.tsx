@@ -2,9 +2,11 @@ import './globals.css';
 
 import { cn } from '@/lib/utils';
 import { siteConfig } from '@/config/site';
+import { fontHeading, fontMono, fontSans } from '@/lib/fonts';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
-import { fontHeading, fontMono, fontSans } from '@/lib/fonts';
+
+import { ScrollToTopButton } from '@/components/main/scroll-to-top-button';
 
 export const metadata = {
   title: {
@@ -51,6 +53,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
           <Toaster />
+          <ScrollToTopButton />
         </ThemeProvider>
       </body>
     </html>

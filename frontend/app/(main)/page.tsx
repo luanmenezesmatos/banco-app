@@ -6,8 +6,6 @@ import { BankAccount } from '@/components/main/bank-account';
 import { InvestSection } from '@/components/main/invest-section';
 import { BlogSection } from '@/components/main/blog-section';
 
-import { ScrollToTopButton } from '@/components/main/scroll-to-top-button';
-
 export default async function IndexPage() {
   return (
     <>
@@ -18,7 +16,6 @@ export default async function IndexPage() {
       <BankAccount />
       <InvestSection />
       <BlogSection />
-      <ScrollToTopButton />
     </>
   );
 }
