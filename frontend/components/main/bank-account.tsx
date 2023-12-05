@@ -10,7 +10,7 @@ import { buttonVariants } from '@/components/ui/button';
 
 export function BankAccount() {
   return (
-    <section className="mt-10 border-t">
+    <section className="mt-10">
       <div className="mx-auto max-w-none px-5 py-14 sm:max-w-[90%] sm:px-0 lg:max-w-4xl">
         <h1 className="text-center font-sans font-bold text-3xl md:text-4xl lg:text-4xl lg:ml-4">
           Conta do {siteConfig.name}
@@ -23,7 +23,7 @@ export function BankAccount() {
         </p>
         <div className="mt-5 flex justify-center">
           <Link
-            href="/dashboard/stores"
+            href="/para-voce"
             className={cn(
               buttonVariants({
                 variant: 'link',

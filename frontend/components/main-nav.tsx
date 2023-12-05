@@ -42,7 +42,7 @@ export function MainNav({ items, children }: MainNavProps) {
                 key={index}
                 href={item.disabled ? '#' : item.href || '#'}
                 className={cn(
-                  'flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm',
+                  'flex items-center text-lg font-sans font-medium transition-colors hover:text-foreground/80 sm:text-sm',
                   item.disabled && 'cursor-not-allowed opacity-80'
                 )}
               >
@@ -139,7 +139,7 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-heading font-bold leading-none">
+          <div className="text-sm font-semibold leading-none">
             {title}
           </div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
