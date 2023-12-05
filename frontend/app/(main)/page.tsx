@@ -3,6 +3,7 @@ import { MainSection } from '@/components/main/main-section';
 import { CardSection } from '@/components/main/card-section';
 import { FinancialSection } from '@/components/main/financial-section';
 import { BankAccount } from '@/components/main/bank-account';
+import { BlogSection } from '@/components/main/blog-section,';
 
 export default async function IndexPage() {
   return (
@@ -12,6 +13,7 @@ export default async function IndexPage() {
       <CardSection />
       <FinancialSection />
       <BankAccount />
+      <BlogSection />
     </>
   );
 }
