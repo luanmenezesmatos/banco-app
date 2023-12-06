@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { siteConfig } from '@/config/site';
 import { validateCPF } from '@/lib/utils';
@@ -62,11 +62,19 @@ export function InsertCPFForm() {
     },
   });
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsOpen(true);
+    setIsSheetOpen(true);
   };
 
-  const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    if (!isSheetOpen) {
+      form.reset();
+    }
+  }, [isSheetOpen, form]);
 
   return (
     <Card>
@@ -116,48 +124,89 @@ export function InsertCPFForm() {
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="full">
-                  <div className="grid gap-4 py-4 mt-20 lg:mt-10">
-                    <div className="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
-                      <div className="md:col-span-1 text-center md:text-left">
-                        <h1 className="text-3xl md:text-5xl md:ml-10 font-sans font-semibold">
-                          Complete os campos abaixo para pedir sua Conta e
-                          Cartão de Crédito
-                        </h1>
-                      </div>
-
-                      <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-4 items-center gap-4 md:justify-end mt-10">
-                        <Label
-                          htmlFor="name"
-                          className="text-left md:text-right col-span-1"
-                        >
-                          Name
-                        </Label>
-                        <Input
-                          id="name"
-                          value="Pedro Duarte"
-                          className="col-span-1 md:col-span-3 w-full"
-                        />
-
-                        <Label
-                          htmlFor="username"
-                          className="text-left md:text-right col-span-1"
-                        >
-                          Username
-                        </Label>
-                        <Input
-                          id="username"
-                          value="@peduarte"
-                          className="col-span-1 md:col-span-3 w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <SheetFooter>
-                    <SheetClose asChild>
-                      <Button type="submit">Save changes</Button>
-                    </SheetClose>
-                  </SheetFooter>
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>
+                        Peça sua conta e<br /> cartão de crédito do {siteConfig.name}
+                      </CardTitle>
+                    </CardHeader>
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit(onSubmit)}>
+                        <CardContent>
+                          <div className="grid w-full items-center gap-4">
+                            <div className="flex flex-col space-y-1.5">
+                              <FormField
+                                control={form.control}
+                                name="cpf"
+                                render={() => {
+                                  return (
+                                    <FormItem>
+                                      <FormLabel htmlFor="cpf">CPF</FormLabel>
+                                      <FormControl>
+                                        <InputMask
+                                          type="tel"
+                                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                          mask="999.999.999-99"
+                                          value={form.getValues('cpf')}
+                                          onChange={(e) =>
+                                            form.setValue('cpf', e.target.value)
+                                          }
+                                        />
+                                      </FormControl>
+                                      <FormDescription>Digite o seu CPF</FormDescription>
+                                      <FormMessage />
+                                    </FormItem>
+                                  );
+                                }}
+                              />
+                              <FormItem>
+                                <FormLabel htmlFor="name">Name</FormLabel>
+                                <FormControl>
+                                  <Input
+                                    id="name"
+                                    value="Pedro Duarte"
+                                    className="w-full"
+                                  />
+                                </FormControl>
+                              </FormItem>
+                              <FormItem>
+                                <FormLabel htmlFor="username">Username</FormLabel>
+                                <FormControl>
+                                  <Input
+                                    id="username"
+                                    value="@peduarte"
+                                    className="w-full"
+                                  />
+                                </FormControl>
+                              </FormItem>
+                            </div>
+                          </div>
+                        </CardContent>
+                        <CardFooter>
+                          {isOpen ? (
+                            <Sheet>
+                              <SheetTrigger>
+                                <Button type="submit">
+                                  Save changes <Icons.arrowRight className="w-4 h-4 ml-2" />
+                                </Button>
+                              </SheetTrigger>
+                              <SheetContent side="full">
+                                <SheetFooter>
+                                  <SheetClose asChild>
+                                    <Button type="submit">Save changes</Button>
+                                  </SheetClose>
+                                </SheetFooter>
+                              </SheetContent>
+                            </Sheet>
+                          ) : (
+                            <Button type="submit">
+                              Continuar <Icons.arrowRight className="w-4 h-4 ml-2" />
+                            </Button>
+                          )}
+                        </CardFooter>
+                      </form>
+                    </Form>
+                  </Card>
                 </SheetContent>
               </Sheet>
             ) : (
