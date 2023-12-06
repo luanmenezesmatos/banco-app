@@ -129,21 +129,24 @@ export function InsertCPFForm() {
                       Cadastrar <Icons.arrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </SheetTrigger>
-                ) : (
-                  <SheetHeader>
-                    <SheetTitle>
-                      {hasOpenedSheet
-                        ? 'Obrigado por se cadastrar!'
-                        : 'Quase lá!'}
-                    </SheetTitle>
-                    <SheetDescription>
-                      {hasOpenedSheet
-                        ? 'Em breve você receberá um e-mail com mais informações.'
-                        : 'Preencha o formulário abaixo para finalizar o seu cadastro.'}
-                    </SheetDescription>
-                  </SheetHeader>
+                ) : hasOpenedSheet && !form.formState.isValid ? (
+                  <SheetTrigger>
+                    <Button type="submit">
+                      Cadastrar <Icons.arrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </SheetTrigger>
+                ) : /* hasOpenedSheet && form.formState.isValid ? (
+                  <SheetTrigger>
+                    <Button type="submit">
+                      Continuar <Icons.arrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </SheetTrigger>
+                ) :  */(
+                  <Button type="submit">
+                    Cadastrar <Icons.arrowRight className="w-4 h-4 ml-2" />
+                  </Button>
                 )}
-                
+
                 <SheetContent side="full">
                   <Card>
                     <CardHeader>
