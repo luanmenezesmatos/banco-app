@@ -63,18 +63,27 @@ export function InsertCPFForm() {
   });
 
   const [isOpen, setIsOpen] = useState(false);
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [hasOpenedSheet, setHasOpenedSheet] = useState(false);
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    setIsOpen(true);
-    setIsSheetOpen(true);
+    if (await form.trigger()) {
+      if (form.formState.isValid && !hasOpenedSheet) {
+        console.log('entrou');
+        setIsOpen(true);
+      }
+
+      if (form.formState.isValid && isOpen) {
+        console.log('enviou');
+        setHasOpenedSheet(true);
+      }
+    }
   };
 
   useEffect(() => {
-    if (!isSheetOpen) {
+    if (!isOpen) {
       form.reset();
     }
-  }, [isSheetOpen, form]);
+  }, [isOpen, form]);
 
   return (
     <Card>
@@ -91,26 +100,22 @@ export function InsertCPFForm() {
                 <FormField
                   control={form.control}
                   name="cpf"
-                  render={({ field }) => {
-                    return (
-                      <FormItem>
-                        <FormLabel htmlFor="cpf">CPF</FormLabel>
-                        <FormControl>
-                          <InputMask
-                            type="tel"
-                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                            mask="999.999.999-99"
-                            value={form.getValues('cpf')}
-                            onChange={(e) =>
-                              form.setValue('cpf', e.target.value)
-                            }
-                          />
-                        </FormControl>
-                        <FormDescription>Digite o seu CPF</FormDescription>
-                        <FormMessage />
-                      </FormItem>
-                    );
-                  }}
+                  render={() => (
+                    <FormItem>
+                      <FormLabel htmlFor="cpf">CPF</FormLabel>
+                      <FormControl>
+                        <InputMask
+                          type="tel"
+                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                          mask="999.999.999-99"
+                          value={form.getValues('cpf')}
+                          onChange={(e) => form.setValue('cpf', e.target.value)}
+                        />
+                      </FormControl>
+                      <FormDescription>Digite o seu CPF</FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
               </div>
             </div>
@@ -118,16 +123,33 @@ export function InsertCPFForm() {
           <CardFooter>
             {isOpen ? (
               <Sheet>
-                <SheetTrigger>
-                  <Button type="submit">
-                    Continuar <Icons.arrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </SheetTrigger>
+                {!hasOpenedSheet && form.formState.isValid ? (
+                  <SheetTrigger>
+                    <Button type="submit">
+                      Cadastrar <Icons.arrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </SheetTrigger>
+                ) : (
+                  <SheetHeader>
+                    <SheetTitle>
+                      {hasOpenedSheet
+                        ? 'Obrigado por se cadastrar!'
+                        : 'Quase lá!'}
+                    </SheetTitle>
+                    <SheetDescription>
+                      {hasOpenedSheet
+                        ? 'Em breve você receberá um e-mail com mais informações.'
+                        : 'Preencha o formulário abaixo para finalizar o seu cadastro.'}
+                    </SheetDescription>
+                  </SheetHeader>
+                )}
+                
                 <SheetContent side="full">
                   <Card>
                     <CardHeader>
                       <CardTitle>
-                        Peça sua conta e<br /> cartão de crédito do {siteConfig.name}
+                        Peça sua conta e<br /> cartão de crédito do{' '}
+                        {siteConfig.name}
                       </CardTitle>
                     </CardHeader>
                     <Form {...form}>
@@ -138,70 +160,42 @@ export function InsertCPFForm() {
                               <FormField
                                 control={form.control}
                                 name="cpf"
-                                render={() => {
-                                  return (
-                                    <FormItem>
-                                      <FormLabel htmlFor="cpf">CPF</FormLabel>
-                                      <FormControl>
-                                        <InputMask
-                                          type="tel"
-                                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                          mask="999.999.999-99"
-                                          value={form.getValues('cpf')}
-                                          onChange={(e) =>
-                                            form.setValue('cpf', e.target.value)
-                                          }
-                                        />
-                                      </FormControl>
-                                      <FormDescription>Digite o seu CPF</FormDescription>
-                                      <FormMessage />
-                                    </FormItem>
-                                  );
-                                }}
+                                render={() => (
+                                  <FormItem>
+                                    <FormLabel htmlFor="cpf">CPF</FormLabel>
+                                    <FormControl>
+                                      <InputMask
+                                        type="tel"
+                                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                        mask="999.999.999-99"
+                                        value={form.getValues('cpf')}
+                                        onChange={(e) =>
+                                          form.setValue('cpf', e.target.value)
+                                        }
+                                      />
+                                    </FormControl>
+                                    <FormDescription>
+                                      Digite o seu CPF
+                                    </FormDescription>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
                               />
-                              <FormItem>
-                                <FormLabel htmlFor="name">Name</FormLabel>
-                                <FormControl>
-                                  <Input
-                                    id="name"
-                                    value="Pedro Duarte"
-                                    className="w-full"
-                                  />
-                                </FormControl>
-                              </FormItem>
-                              <FormItem>
-                                <FormLabel htmlFor="username">Username</FormLabel>
-                                <FormControl>
-                                  <Input
-                                    id="username"
-                                    value="@peduarte"
-                                    className="w-full"
-                                  />
-                                </FormControl>
-                              </FormItem>
                             </div>
                           </div>
                         </CardContent>
                         <CardFooter>
-                          {isOpen ? (
-                            <Sheet>
-                              <SheetTrigger>
-                                <Button type="submit">
-                                  Save changes <Icons.arrowRight className="w-4 h-4 ml-2" />
-                                </Button>
-                              </SheetTrigger>
-                              <SheetContent side="full">
-                                <SheetFooter>
-                                  <SheetClose asChild>
-                                    <Button type="submit">Save changes</Button>
-                                  </SheetClose>
-                                </SheetFooter>
-                              </SheetContent>
-                            </Sheet>
+                          {hasOpenedSheet && form.formState.isValid ? (
+                            <SheetTrigger>
+                              <Button type="submit">
+                                Cadastrar{' '}
+                                <Icons.arrowRight className="w-4 h-4 ml-2" />
+                              </Button>
+                            </SheetTrigger>
                           ) : (
-                            <Button type="submit">
-                              Continuar <Icons.arrowRight className="w-4 h-4 ml-2" />
-                            </Button>
+                            <SheetFooter>
+                              <SheetClose>Fechar</SheetClose>
+                            </SheetFooter>
                           )}
                         </CardFooter>
                       </form>
