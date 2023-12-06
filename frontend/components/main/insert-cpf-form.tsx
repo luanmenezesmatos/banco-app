@@ -116,35 +116,43 @@ export function InsertCPFForm() {
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="full">
-                  <SheetHeader>
-                    <SheetTitle>Edit profile</SheetTitle>
-                    <SheetDescription>
-                      Make changes to your profile here. Click save when you're
-                      done.
-                    </SheetDescription>
-                  </SheetHeader>
-                  <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                      <Label htmlFor="name" className="text-right">
-                        Name
-                      </Label>
-                      <Input
-                        id="name"
-                        value="Pedro Duarte"
-                        className="col-span-3"
-                      />
-                    </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                      <Label htmlFor="username" className="text-right">
-                        Username
-                      </Label>
-                      <Input
-                        id="username"
-                        value="@peduarte"
-                        className="col-span-3"
-                      />
+                  <div className="grid gap-4 py-4 mt-40 lg:mt-10">
+                    <div className="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
+                      <div className="md:col-span-1 text-center md:text-left">
+                        <h1 className="text-3xl md:text-5xl md:ml-10 font-sans font-semibold">
+                          Complete os campos abaixo para pedir sua Conta e
+                          Cartão de Crédito
+                        </h1>
+                      </div>
+
+                      <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-4 items-center gap-4 md:justify-end mt-10">
+                        <Label
+                          htmlFor="name"
+                          className="text-left md:text-right col-span-1"
+                        >
+                          Name
+                        </Label>
+                        <Input
+                          id="name"
+                          value="Pedro Duarte"
+                          className="col-span-1 md:col-span-3 w-full"
+                        />
+
+                        <Label
+                          htmlFor="username"
+                          className="text-left md:text-right col-span-1"
+                        >
+                          Username
+                        </Label>
+                        <Input
+                          id="username"
+                          value="@peduarte"
+                          className="col-span-1 md:col-span-3 w-full"
+                        />
+                      </div>
                     </div>
                   </div>
+
                   <SheetFooter>
                     <SheetClose asChild>
                       <Button type="submit">Save changes</Button>
