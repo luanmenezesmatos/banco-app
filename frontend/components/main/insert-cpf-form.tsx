@@ -68,13 +68,15 @@ export function InsertCPFForm() {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     if (await form.trigger()) {
       if (form.formState.isValid && !hasOpenedSheet) {
-        console.log('entrou');
         setIsOpen(true);
       }
 
       if (form.formState.isValid && isOpen) {
-        console.log('enviou');
         setHasOpenedSheet(true);
+      }
+
+      if (form.formState.isValid && hasOpenedSheet) {
+        setHasOpenedSheet(false);
       }
     }
   };
@@ -135,13 +137,7 @@ export function InsertCPFForm() {
                       Cadastrar <Icons.arrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </SheetTrigger>
-                ) : /* hasOpenedSheet && form.formState.isValid ? (
-                  <SheetTrigger>
-                    <Button type="submit">
-                      Continuar <Icons.arrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </SheetTrigger>
-                ) :  */(
+                ) : (
                   <Button type="submit">
                     Cadastrar <Icons.arrowRight className="w-4 h-4 ml-2" />
                   </Button>
